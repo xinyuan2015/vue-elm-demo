@@ -58,14 +58,14 @@ borderRadius($radius) {
   border-radius: $radius;
 }
 //定位全屏
-allcover{
+.allcover{
 	position:absolute;
   top:0;
   right:0;
 }
 
 //定位上下左右居中
-center {
+.center {
 	position: absolute;
   top: 50%;
   left: 50%;
@@ -73,38 +73,15 @@ center {
 }
 
 //定位上下居中
-ct {
+.ct {
 	position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
 //定位上下居中
-cl {
+.cl {
 	position: absolute;
   left: 50%;
   transform: translateX(-50%);
-}
-
-//宽高
-wh($width, $height){
-	width: $width;
-  height: $height;
-}
-
-//字体大小、行高、字体
-font($size, $line-height, $family) {
-	font: $size $line-height $family;
-}
-
-//字体大小，颜色
-sc($size, $color){
-	font-size: $size;
-  color: $color;
-}
-
-//flex 布局和 子元素 对其方式
-fj($type){
-	display: flex;
-  justify-content: $type;
 }

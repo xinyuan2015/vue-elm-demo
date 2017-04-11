@@ -25,7 +25,7 @@ const setpromise = data => {
 };
 
 //编译环境使用真实数据
-if (process.env.NODE_ENV == 'development') {
+if (process.env.NODE_ENV !== 'development') {
 
   /**
    * 获取首页默认地址

@@ -27,7 +27,78 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/shopping': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/shopping': '/shopping'
+        }
+      },
+      '/ugc': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/ugc': '/ugc'
+        }
+      },
+      '/v1': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/v1': '/v1'
+        }
+      },
+      '/v2': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/v2': '/v2'
+        }
+      },
+      '/v3': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/v3': '/v3'
+        }
+      },
+      '/v4': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/v4': '/v4'
+        }
+      },
+      '/bos': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/bos': '/bos'
+        }
+      },
+      '/member': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/member': '/member'
+        }
+      },
+      '/promotion': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/promotion': '/promotion'
+        }
+      },
+      '/eus': {
+        target: 'https://mainsite-restapi.ele.me',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/eus': '/eus'
+        }
+      }
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
