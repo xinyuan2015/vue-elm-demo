@@ -1,2 +1,6 @@
 build/*.js
 config/*.js
+src/tool/*.js
+src/store/*.js
+src/service/*.js
+src/service/tempdata/*.js
