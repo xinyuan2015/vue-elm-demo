@@ -11,7 +11,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import './assets/css/reset.css';
+  @import './assets/stylus/common.styl';
 
   .router-fade-enter-active, .router-fade-leave-active {
     transition: opacity .3s;
