@@ -1,6 +1,17 @@
 import App from '../App';
 
 const home = r => require.ensure([], () => r(require('../view/home/home')), 'home');
+const city = r => require.ensure([], () => r(require('../view/city/city')), 'home');
+const search = r => require.ensure([], () => r(require('../view/search/search')), 'search');
+const login = r => require.ensure([], () => r(require('../view/login/login')), 'login');
+const profile = r => require.ensure([], () => r(require('../view/profile/profile')), 'profile');
+const forget = r => require.ensure([], () => r(require('../view/forget/forget')), 'forget');
+const info = r => require.ensure([], () => r(require('../view/profile/children/info')), 'info');
+const setusername = r => require.ensure([], () => r(require('../view/profile/children/setusername')), 'setusername');
+const add = r => require.ensure([], () => r(require('../view/profile/children/children/children/add')), 'add');
+const address = r => require.ensure([], () => r(require('../view/profile/children/children/address')), 'address');
+const addDetail = r => require.ensure([], () => r(require('../view/profile/children/children/children/children/addDetail')), 'addDetail');
+const service = r => require.ensure([], () => r(require('../view/service/service')), 'service');
 
 export default [{
   path: '/',
@@ -15,6 +26,57 @@ export default [{
     {
       path: '/home',
       component: home
+    },
+    // 当前选择城市页
+    {
+      path: '/city/:cityid',
+      component: city
+    },
+    // 搜索页
+    {
+      path: '/search/:geohash',
+      component: search
+    },
+    // 登陆注册页
+    {
+      path: '/login',
+      component: login
+    },
+    // 个人信息页
+    {
+      path: '/profile',
+      component: profile,
+      children: [
+        {
+          path: 'info',
+          component: info,
+          children: [{
+            path: 'add',
+            component: add,
+            children: [{
+              path: 'address',
+              component: address, // 编辑地址
+              children: [{
+                path: 'addDetail',
+                component: addDetail
+              }]
+            }]
+          }]
+        },
+        {
+          path: 'setusername',
+          component: setusername
+        },
+        {
+          path: 'service', // 服务中心
+          component: service
+        }
+      ]
+    },
+    // 修改密码页
+    {
+      path: '/forget',
+      component: forget
     }
   ]
 }];
