@@ -71,6 +71,7 @@
     border: 1px;
     border-radius: 0.25rem;
     .tip-icon
+      margin: 0 auto;
       width: 3rem;
       height: 3rem;
       border: 0.15rem solid #f8cb86;

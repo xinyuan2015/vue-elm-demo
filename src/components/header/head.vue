@@ -7,7 +7,7 @@
         <polyline points="12,18 4,9 12,0" style="fill:none;stroke:rgb(255,255,255);stroke-width:2"/>
       </svg>
     </section>
-    <router-link :to="userInfo?'/profile':'/logo'" v-if="signinUp" class="head-login">
+    <router-link :to="userInfo?'/profile':'/login'" v-if="signinUp" class="head-login">
       <svg class="user-avatar" v-if="userInfo">
         <use xmls:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use>
       </svg>

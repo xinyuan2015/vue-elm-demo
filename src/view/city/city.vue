@@ -3,7 +3,7 @@
     <head-top :head-title="cityname" go-back="true">
       <router-link to="/home" slot="changeCity" class="change-city">切换城市</router-link>
     </head-top>
-    <form class="city-form" v-on:submit.prevent>
+    <form class="city-form" @submit.prevent>
       <div>
         <input type="search" name="city" placeholder="输入学校、商务楼、地址" class="city-input input-style" required v-model="inputValue">
       </div>
@@ -23,9 +23,9 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import headTop from '../../components/header/head.vue';
-  import {currentcity, searchplace} from '../../service/getData';
-  import {getStore, setStore} from '../../tool/mUtils';
+  import headTop from 'components/header/head.vue';
+  import {currentcity, searchplace} from 'service/getData';
+  import {getStore, setStore} from 'tool/mUtils';
   export default {
     data() {
       return {
