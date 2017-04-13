@@ -30,15 +30,15 @@
           </h5>
           <h5 class="fee-distance">
             <section class="fee">
-              ￥{{item.float_minimun_order_amount}}起送
+              ￥{{item.float_minimum_order_amount}}起送
               <span class="segmentation">/</span>
               {{item.piecewise_agent_fee.tips}}
             </section>
             <section class="distance-time">
-              <span>{{item.distance>1000?(item.distance/1000).toFixed(2)+'km':item.diatance+'m'}}
+              <span>{{item.distance>1000?(item.distance/1000).toFixed(2)+'km':item.distance+'m'}}
                 <span class="segmentation">/</span>
               </span>
-              <span class="order-item">{{item.order_lead_time}}</span>
+              <span class="order-time">{{item.order_lead_time}}分钟</span>
             </section>
           </h5>
         </hgroup>
@@ -204,9 +204,9 @@
       .shop-title
         width: 8.5rem;
         color: #333;
-        padding-top: .01rem;
+        padding-top: 0.01rem;
         font-size: 0.65rem;
-        line-height: 0.65rem;
+        line-height: 0.7rem;
         font-family: 'PingFangSC-Regular';
         font-weight: 700;
       .premiun::before
@@ -261,7 +261,7 @@
         .delivery-right
           color: $blue;
           border: 0.025rem solid $blue;
-    .fee_distance
+    .fee-distance
       margin-top: 0.52rem;
       display: flex;
       justify-content: space-between;
@@ -270,32 +270,32 @@
       .fee
         font-size: 0.5rem;
         color: #666;
-      .distance_time
+      .distance-time
         span
           color: #999;
-        .order_time
+        .order-time
           color: $blue;
         .segmentation
           color: #ccc;
 
-  .loader_more
+  .loader-more
     font-size: 0.6rem;
     line-height: 3rem;
     font-family: "Microsoft YaHei";
     text-align: center;
     color: #999;
 
-  .empty_data
+  .empty-data
     font-size: 0.5rem;
     color: #666;
     text-align: center;
     line-height: 2rem;
 
-  .return_top
+  .return-top
     position: fixed;
     bottom: 3rem;
     right: 1rem;
-    .back_top_svg
+    .back-top-svg
       width: 2rem;
       height: 2rem;
 

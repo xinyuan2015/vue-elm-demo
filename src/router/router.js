@@ -2,6 +2,7 @@ import App from '../App';
 
 const home = r => require.ensure([], () => r(require('../view/home/home')), 'home');
 const city = r => require.ensure([], () => r(require('../view/city/city')), 'home');
+const msite = r => require.ensure([], () => r(require('../view/msite/msite')), 'msite');
 const search = r => require.ensure([], () => r(require('../view/search/search')), 'search');
 const login = r => require.ensure([], () => r(require('../view/login/login')), 'login');
 const profile = r => require.ensure([], () => r(require('../view/profile/profile')), 'profile');
@@ -31,6 +32,11 @@ export default [{
     {
       path: '/city/:cityid',
       component: city
+    },
+    // 所有商铺列表
+    {
+      path: '/msite',
+      component: msite
     },
     // 搜索页
     {
