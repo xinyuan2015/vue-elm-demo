@@ -20,7 +20,7 @@
 
       </defs>
     </svg>
-    <section @clicck="gotoAddress({path:'/msite',query:{geohash}})" class="guide-item">
+    <section @click="gotoAddress({path: '/msite', query: {geohash}})" class="guide-item">
       <svg class="icon-style">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.indexOf('msite') !== -1? '#msiteActive' : '#msite'"></use>
       </svg>
