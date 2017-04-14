@@ -203,139 +203,136 @@
   .profile-page
     p, span
       font-family: Helvetica Neue, Tahoma, Arial;
-
-  .profile-number
-    padding-top: 1.95rem;
-    .profile-link
-      display: block;
-      display: flex;
-      box-align: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background: $blue;
-      padding: .666667rem .6rem;
-      .private-image
-        display: inline-block;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 50%;
-        vertical-align: middle;
-        .private-img-svg
+    .profile-number
+      padding-top: 1.95rem;
+      .profile-link
+        display: block;
+        display: flex;
+        box-align: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background: $blue;
+        padding: .666667rem .6rem;
+        .private-image
+          display: inline-block;
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          vertical-align: middle;
+        .private-image-svg
           background: $fc;
           width: 2.5rem;
           height: 2.5rem;
           border-radius: 50%;
-      .user-info
-        margin-left: .48rem;
-        -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        p
-          font-weight: 700;
-          font-size: 0.8rem;
-          color: $fc;
-          .user-icon
-            width: 0.5rem;
-            height: 0.75rem;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 0.75rem;
-            .icon-mobile
-              width: 100%;
-              height: 100%;
-          .icon-mobile-number
-            display: inline-block;
-            font-size: 0.57333rem;
-            color: $fc;
-      .arrow
-        width: 0.46667rem;
-        height: 0.98rem;
-        display: inline-block;
-        svg
-          width: 100%;
-          height: 100%;
-
-  .info-data
-    width: 100%;
-    background: $fc;
-    box-sizing: border-box;
-    ul
-      .info-data-link
-        float: left;
-        width: 33.33%;
-        display: inline-block;
-        border-right: 1px solid #f1f1f1;
-        span
-          display: block;
-          width: 100%;
-          text-align: center;
-        .info-data-top
-          font-size: 0.55rem;
-          color: #333;
-          padding: 0.853333rem 0 0.453333rem;
-          b
-            display: inline-block;
-            font-size: 1.2rem;
-            color: #f90;
+        .user-info
+          margin-left: .48rem;
+          -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+          flex-grow: 1;
+          p
             font-weight: 700;
-            line-height: 1rem;
-            font-family: Helvetica Neue, Tahoma;
-        .info-data-bottom
-          font-size: 0.57333rem;
-          color: #666;
-          font-weight: 400;
-          padding-bottom: 0.453333rem;
-      .info-data-link:nth-of-type(2)
-        .info-data-top
-          b
-            color: #ff5f3e;
-      .info-data-link:nth-of-type(3)
-        border: 0;
-        .info-data-top
-          b
-            color: #6ac20b;
-
-  .profile-section
-    margin-top: 0.4rem;
-    background: $fc;
-    .myorder
-      padding-left: 1.6rem;
-      display: flex;
-      align-items: center;
-      aside
-        width: 0.7rem;
-        height: 0.7rem;
-        margin-left: -0.866667rem;
-        margin-right: 0.266667rem;
-        display: flex;
-        align-items: center;
-        svg
-          width: 100%;
-          height: 100%;
-      .myorder-div
-        width: 100%;
-        border-bottom: 1px solid #f1f1f1;
-        padding: .433333rem .266667rem .433333rem 0;
-        font-size: 0.7rem;
-        color: #333;
-        display: flex;
-        justify-content: space-between;
-        span
-          display: block;
-        .myorder-div-svg
+            font-size: 0.8rem;
+            color: $fc;
+            .user-icon
+              width: 0.5rem;
+              height: 0.75rem;
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 0.75rem;
+              .icon-mobile
+                width: 100%;
+                height: 100%;
+            .icon-mobile-number
+              display: inline-block;
+              font-size: 0.57333rem;
+              color: $fc;
+        .arrow
           width: 0.46667rem;
-          height: 0.46667rem;
+          height: 0.98rem;
+          display: inline-block;
           svg
             width: 100%;
             height: 100%;
-    .myorder:nth-of-type(3) .myorder-div
-      border: 0;
 
-  .router-slid-enter-active, .router-slid-leave-active
-    transition: all .4s;
+    .info-data
+      width: 100%;
+      background: $fc;
+      box-sizing: border-box;
+      ul
+        .info-data-link
+          float: left;
+          width: 33.33%;
+          display: inline-block;
+          border-right: 1px solid #f1f1f1;
+          span
+            display: block;
+            width: 100%;
+            text-align: center;
+          .info-data-top
+            font-size: 0.55rem;
+            color: #333;
+            padding: 0.853333rem 0 0.453333rem;
+            b
+              display: inline-block;
+              font-size: 1.2rem;
+              color: #f90;
+              font-weight: 700;
+              line-height: 1rem;
+              font-family: Helvetica Neue, Tahoma;
+          .info-data-bottom
+            font-size: 0.57333rem;
+            color: #666;
+            font-weight: 400;
+            padding-bottom: 0.453333rem;
+        .info-data-link:nth-of-type(2)
+          .info-data-top
+            b
+              color: #ff5f3e;
+        .info-data-link:nth-of-type(3)
+          border: 0;
+          .info-data-top
+            b
+              color: #6ac20b;
 
-  .router-slid-enter, .router-slid-leave-active
-    transform: translate3d(2rem, 0, 0);
-    opacity: 0;
+    .profile-section
+      margin-top: 0.4rem;
+      background: $fc;
+      .myorder
+        padding-left: 1.6rem;
+        display: flex;
+        align-items: center;
+        aside
+          width: 0.7rem;
+          height: 0.7rem;
+          margin-left: -0.866667rem;
+          margin-right: 0.266667rem;
+          display: flex;
+          align-items: center;
+          svg
+            width: 100%;
+            height: 100%;
+        .myorder-div
+          width: 100%;
+          border-bottom: 1px solid #f1f1f1;
+          padding: .433333rem .266667rem .433333rem 0;
+          font-size: 0.7rem;
+          color: #333;
+          display: flex;
+          justify-content: space-between;
+          span
+            display: block;
+          .myorder-div-svg
+            width: 0.46667rem;
+            height: 0.46667rem;
+            svg
+              width: 100%;
+              height: 100%;
+      .myorder:nth-of-type(3) .myorder-div
+        border: 0;
+    .router-slid-enter-active, .router-slid-leave-active
+      transition: all .4s;
+    .router-slid-enter, .router-slid-leave-active
+      transform: translate3d(2rem, 0, 0);
+      opacity: 0;
 </style>

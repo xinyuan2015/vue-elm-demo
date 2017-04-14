@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <head-top signin-up="home">
       <span slot="logo" class="head-logo" @click="reload">ele.me</span>
     </head-top>
@@ -94,84 +94,85 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../assets/stylus/mixin.styl";
-  .head-logo
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0.4rem;
-    width: 2.3rem;
-    height: 0.7rem;
-    font-size: 0.7rem;
-    line-height: 0.7rem;
-    color: #fff;
-    font-weight: 400;
+  .home
+    .head-logo
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0.4rem;
+      width: 2.3rem;
+      height: 0.7rem;
+      font-size: 0.7rem;
+      line-height: 0.7rem;
+      color: #fff;
+      font-weight: 400;
 
-  .city-nav
-    padding-top: 2.35rem;
-    border-top: 1px solid $bc;
-    background-color: #fff;
-    margin-bottom: 0.4rem;
-    .city-tip
-      display: flex;
-      justify-content: space-between;
-      line-height: 1.45rem;
-      padding: 0 0.45rem;
-      span:nth-of-type(1)
-        font-size: 0.55rem;
-        color: #666;
-      span:nth-of-type(2)
-        font-weight: 900;
-        font-size: 0.475rem;
-        color: #9f9f9f;
-    .guess-city
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 1.8rem;
-      padding: 0 0.45rem;
+    .city-nav
+      padding-top: 2.35rem;
       border-top: 1px solid $bc;
-      border-bottom: 2px solid $bc;
-      font-size: 0.75rem;
-      line-height: 1.8rem;
-      span:nth-of-type(1)
-        color: $blue;
-      .arrow-right
-        width: 0.6rem;
-        height: 0.6rem;
-        fill: #999;
-  #hot-city-container
-    background-color: #fff;
-    margin-bottom: 0.4rem;
-  .citylistul
-    li
-      float: left;
-      text-align: center;
-      color: $blue;
-      border-bottom: 0.025rem solid $bc;
-      border-right: 0.025rem solid $bc;
-      width: 25%;
-      height: 1.75rem;
-      font-size: 0.6rem;
-      line-height: 1.75rem;
-    li:nth-of-type(4n)
-      border-right: none;
-  .city-title
-    color: #666;
-    font-weight: 400;
-    text-indent: 0.45rem;
-    border-top: 2px solid $bc;
-    border-bottom: 1px solid $bc;
-    font-size: 0.55rem;
-    line-height: 1.45rem;
-    font-family: "Helvetica Neue";
-    span
-      font-size: 0.475rem;
-      color: #999;
-  .letter-classify-li
-    margin-bottom: 0.4rem;
-    background-color: #fff;
-    border-bottom: 1px solid $bc;
-    .groupcity-name-container
+      background-color: #fff;
+      margin-bottom: 0.4rem;
+      .city-tip
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.45rem;
+        padding: 0 0.45rem;
+        span:nth-of-type(1)
+          font-size: 0.55rem;
+          color: #666;
+        span:nth-of-type(2)
+          font-weight: 900;
+          font-size: 0.475rem;
+          color: #9f9f9f;
+      .guess-city
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 1.8rem;
+        padding: 0 0.45rem;
+        border-top: 1px solid $bc;
+        border-bottom: 2px solid $bc;
+        font-size: 0.75rem;
+        line-height: 1.8rem;
+        span:nth-of-type(1)
+          color: $blue;
+        .arrow-right
+          width: 0.6rem;
+          height: 0.6rem;
+          fill: #999;
+    #hot-city-container
+      background-color: #fff;
+      margin-bottom: 0.4rem;
+    .citylistul
       li
-        color: #666;
+        float: left;
+        text-align: center;
+        color: $blue;
+        border-bottom: 0.025rem solid $bc;
+        border-right: 0.025rem solid $bc;
+        width: 25%;
+        height: 1.75rem;
+        font-size: 0.6rem;
+        line-height: 1.75rem;
+      li:nth-of-type(4n)
+        border-right: none;
+    .city-title
+      color: #666;
+      font-weight: 400;
+      text-indent: 0.45rem;
+      border-top: 2px solid $bc;
+      border-bottom: 1px solid $bc;
+      font-size: 0.55rem;
+      line-height: 1.45rem;
+      font-family: "Helvetica Neue";
+      span
+        font-size: 0.475rem;
+        color: #999;
+    .letter-classify-li
+      margin-bottom: 0.4rem;
+      background-color: #fff;
+      border-bottom: 1px solid $bc;
+      .groupcity-name-container
+        li
+          color: #666;
 </style>

@@ -100,66 +100,66 @@
   @import "../../assets/stylus/mixin.styl";
   .city-container
     padding-top: 2.35rem;
-  .change-city
-    font-size: 0.4rem;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0.4rem;
-  .city-form
-    background-color: #fff;
-    border-top: 1px solid $bc;
-    border-bottom: 1px solid $bc;
-    padding-top: 0.4rem;
-    div
-      width: 90%;
-      margin: 0 auto;
-      text-align: center;
-      .input-style
-        width: 100%;
-        height: 1.4rem;
-        border-radius: 0.1rem;
-        margin-bottom: 0.4rem;
-      .city-input
-        font-size: 0.65rem;
-        color: #333;
-        border: 1px solid $bc;
-        padding: 0 0.3rem;
-      .city-submit
-        font-size: 0.65rem;
-        color: #fff;
-        background-color: $blue;
-  .pois-search-history
-    border-top: 1px solid $bc;
-    border-bottom: 1px solid $bc;
-    padding-left: 0.5rem;
-    font-size: 0.475rem;
-    line-height: 0.8rem;
-    font-family: "Microsoft YaHei";
-  .getpois-ul
-    background-color: #fff;
-    border-top: 1px solid $bc;
-    li
-      margin: 0 auto;
-      padding-top: 0.65rem;
+    .change-city
+      font-size: 0.4rem;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0.4rem;
+    .city-form
+      background-color: #fff;
+      border-top: 1px solid $bc;
       border-bottom: 1px solid $bc;
-      .pois-name
-        margin: 0 auto 0.35rem;
+      padding-top: 0.4rem;
+      div
         width: 90%;
-        font-size: 0.65rem;
-        color: #333;
-      .pois-address
-        width: 90%;
-        margin: 0 auto 0.55rem;
-        font-size: 0.45rem;
-        color: #999;
-  .search-none-place
-    margin: 0 auto;
-    font-size: 0.65rem;
-    line-height: 1.75rem;
-    font-family: "Microsoft YaHei";
-    color: #333;
-    background-color: #fff;
-    text-indent: 0.5rem;
+        margin: 0 auto;
+        text-align: center;
+        .input-style
+          width: 100%;
+          height: 1.4rem;
+          border-radius: 0.1rem;
+          margin-bottom: 0.4rem;
+        .city-input
+          font-size: 0.65rem;
+          color: #333;
+          border: 1px solid $bc;
+          padding: 0 0.3rem;
+        .city-submit
+          font-size: 0.65rem;
+          color: #fff;
+          background-color: $blue;
+    .pois-search-history
+      border-top: 1px solid $bc;
+      border-bottom: 1px solid $bc;
+      padding-left: 0.5rem;
+      font-size: 0.475rem;
+      line-height: 0.8rem;
+      font-family: "Microsoft YaHei";
+    .getpois-ul
+      background-color: #fff;
+      border-top: 1px solid $bc;
+      li
+        margin: 0 auto;
+        padding-top: 0.65rem;
+        border-bottom: 1px solid $bc;
+        .pois-name
+          margin: 0 auto 0.35rem;
+          width: 90%;
+          font-size: 0.65rem;
+          color: #333;
+        .pois-address
+          width: 90%;
+          margin: 0 auto 0.55rem;
+          font-size: 0.45rem;
+          color: #999;
+    .search-none-place
+      margin: 0 auto;
+      font-size: 0.65rem;
+      line-height: 1.75rem;
+      font-family: "Microsoft YaHei";
+      color: #333;
+      background-color: #fff;
+      text-indent: 0.5rem;
 </style>

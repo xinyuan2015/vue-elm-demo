@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="msite">
     <head-top signin-up="msite">
       <router-link :to="'/search/' + geohash" class="link-search" slot="search">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -7,7 +7,7 @@
           <line x1="15" y1="15" x2="20" y2="20" style="stroke:rgb(255,255,255);stroke-width:2"/>
         </svg>
       </router-link>
-      <router-link to="/home" slot="msite-title" class="msite-title">
+      <router-link to="/home" slot="msiteTitle" class="msite-title">
         <span class="title-text ellipsis">{{msietTitle}}</span>
       </router-link>
     </head-top>
@@ -121,69 +121,70 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../assets/stylus/mixin.styl";
-  .link-search
-    width: 0.8rem;
-    height: 0.9rem;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0.8rem;
-  .msite-title
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    color: #fff;
-    text-align: center;
-    margin-left: -0.5rem;
-    .title-text
-      font-size: 0.8rem;
+  .msite
+    .link-search
+      width: 0.8rem;
+      height: 0.9rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0.8rem;
+    .msite-title
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
       color: #fff;
       text-align: center;
-      display: block;
-  .msite-nav
-    padding-top: 2.1rem;
-    background-color: #fff;
-    border-bottom: 0.025rem solid $bc;
-    .swiper-container
-      width: 100%;
-      height: auto;
-      padding-bottom: 0.6rem;
-      .swiper-pagination
-        bottom: 0.2rem;
-  .food-types-container
-    display:flex;
-    flex-wrap: wrap;
-    .link-to-food
-      width: 25%;
-      padding: 0.3rem 0rem;
-      display: flex;
-      justify-content: center;
-      figure
-        img
-          display: block;
-          margin: 0 auto 0.3rem auto;
-          width: 1.8rem;
-          height: 1.8rem;
-        figcaption
-          text-align: center;
+      margin-left: -0.5rem;
+      .title-text
+        font-size: 0.8rem;
+        color: #fff;
+        text-align: center;
+        display: block;
+    .msite-nav
+      padding-top: 2.1rem;
+      background-color: #fff;
+      border-bottom: 0.025rem solid $bc;
+      .swiper-container
+        width: 100%;
+        height: auto;
+        padding-bottom: 0.6rem;
+        .swiper-pagination
+          bottom: 0.2rem;
+    .food-types-container
+      display:flex;
+      flex-wrap: wrap;
+      .link-to-food
+        width: 25%;
+        padding: 0.3rem 0rem;
+        display: flex;
+        justify-content: center;
+        figure
+          img
+            display: block;
+            margin: 0 auto 0.3rem auto;
+            width: 1.8rem;
+            height: 1.8rem;
+          figcaption
+            text-align: center;
+            font-size: 0.55rem;
+            color: #666;
+    .shop-list-container
+      margin-top: .4rem;
+      border-top: 0.025rem solid $bc;
+      background-color: #fff;
+      .shop-header
+        .shop-icon
+          fill: #999;
+          margin-left: 0.6rem;
+          vertical-align: middle;
+          width: 0.6rem;
+          height: 0.6rem;
+        .shop-header-title
+          color: #999;
           font-size: 0.55rem;
-          color: #666;
-  .shop-list-container
-    margin-top: .4rem;
-    border-top: 0.025rem solid $bc;
-    background-color: #fff;
-    .shop-header
-      .shop-icon
-        fill: #999;
-        margin-left: 0.6rem;
-        vertical-align: middle;
-        width: 0.6rem;
-        height: 0.6rem;
-      .shop-header-title
-        color: #999;
-        font-size: 0.55rem;
-        line-height: 1.6rem;
-        font-family: "Microsoft YaHei";
+          line-height: 1.6rem;
+          font-family: "Microsoft YaHei";
 </style>

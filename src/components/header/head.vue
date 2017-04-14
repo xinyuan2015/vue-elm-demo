@@ -17,9 +17,9 @@
       <span class="title-text">{{headTitle}}</span>
     </section>
     <slot name="edit"></slot>
-    <slot name="msite-title"></slot>
-    <slot name="change-city"></slot>
-    <slot name="change-login"></slot>
+    <slot name="msiteTitle"></slot>
+    <slot name="changeCity"></slot>
+    <slot name="changeLogin"></slot>
   </header>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="padding-top">
+  <div class="search-top">
     <head-top head-title="搜索" goBack="true"></head-top>
     <form class="search-form">
       <input type="search" name="search" placeholder="请输入商家或美食名称" class="search-input" v-model="searchValue" @input="checkInput">
@@ -143,115 +143,114 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../assets/stylus/mixin.styl";
 
-  .padding-top
+  .search-top
     padding-top: 2.1rem;
-
-  .search-form
-    background-color: #fff;
-    padding: 0.5rem;
-    display: flex;
-    input
-      height: 1.5rem;
-    .search-input
-      flex: 4;
-      border: 0.025rem solid $bc;
-      font-size: 0.65rem;
-      color: #333;
-      border-radius: 0.125rem;
-      background-color: #f2f2f2;
-      font-weight: bold;
-      padding: 0 0.25rem;
-    .search-submit
-      flex: 1;
-      border: 0.025rem solid $blue;
-      margin-left: .2rem;
-      font-size: 0.65rem;
-      color: #fff;
-      border-radius: 0.125rem;
-      background-color: $blue;
-      font-weight: bold;
-      padding: 0 0.25rem;
-  .title-restaurant
-    font-size: 0.6rem;
-    line-height: 2rem;
-    text-indent: 0.5rem;
-    font-weight: bold;
-    color: #666;
-  .list-container
-    background-color: #fff;
-  .list-li
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem;
-    border-bottom: 0.025rem solid $bc;
-    .item-left
-      margin-right: 0.25rem;
-      .restaurant-img
-        width: 1.7rem;
-        height: 1.7rem;
-    .item-right
-      font-size: 0.55rem;
-      flex: 1;
-      .item-right-text
-        padding-bottom: 0.25rem;
-        border-bottom: 0.025rem solid $bc;
-        p
-          line-height: .9rem;
-        .pay-icon
-          margin-bottom: -0.08rem;
-      .item-right-detail
-        margin-top: 0.25rem;
-        li
-          font-size: 0;
-          span
-            font-size: .5rem;
-            vertical-align: middle;
-            display: inline-block;
-            margin-bottom: 0.2rem;
-          .activities-icon
-            font-size: 0.5rem;
-            color: #fff;
-            font-weight: bold;
-            padding: .04rem;
-            border-radius: 0.15rem;
-            margin-right: 0.125rem;
-          .only-phone
-            color: #FF6000;
-  .search-history
-    .history-list
+    .search-form
       background-color: #fff;
-      border-bottom: 0.025rem solid $bc;
-      font-size: 0.7rem;
-      line-height: 2rem;
-      font-family: "Microsoft YaHei";
-      padding: 0 0.3rem;
+      padding: 0.5rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .history-text
+      input
+        height: 1.5rem;
+      .search-input
+        flex: 4;
+        border: 0.025rem solid $bc;
+        font-size: 0.65rem;
+        color: #333;
+        border-radius: 0.125rem;
+        background-color: #f2f2f2;
+        font-weight: bold;
+        padding: 0 0.25rem;
+      .search-submit
+        flex: 1;
+        border: 0.025rem solid $blue;
+        margin-left: .2rem;
+        font-size: 0.65rem;
+        color: #fff;
+        border-radius: 0.125rem;
+        background-color: $blue;
+        font-weight: bold;
+        padding: 0 0.25rem;
+    .title-restaurant
+      font-size: 0.6rem;
+      line-height: 2rem;
+      text-indent: 0.5rem;
+      font-weight: bold;
+      color: #666;
+    .list-container
+      background-color: #fff;
+    .list-li
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+      border-bottom: 0.025rem solid $bc;
+      .item-left
+        margin-right: 0.25rem;
+        .restaurant-img
+          width: 1.7rem;
+          height: 1.7rem;
+      .item-right
+        font-size: 0.55rem;
+        flex: 1;
+        .item-right-text
+          padding-bottom: 0.25rem;
+          border-bottom: 0.025rem solid $bc;
+          p
+            line-height: .9rem;
+          .pay-icon
+            margin-bottom: -0.08rem;
+        .item-right-detail
+          margin-top: 0.25rem;
+          li
+            font-size: 0;
+            span
+              font-size: .5rem;
+              vertical-align: middle;
+              display: inline-block;
+              margin-bottom: 0.2rem;
+            .activities-icon
+              font-size: 0.5rem;
+              color: #fff;
+              font-weight: bold;
+              padding: .04rem;
+              border-radius: 0.15rem;
+              margin-right: 0.125rem;
+            .only-phone
+              color: #FF6000;
+    .search-history
+      .history-list
+        background-color: #fff;
+        border-bottom: 0.025rem solid $bc;
         font-size: 0.7rem;
         line-height: 2rem;
         font-family: "Microsoft YaHei";
-        display: inline-block;
-        width: 80%;
-      .delete-icon
-        width: 1rem;
-        height: 1rem;
-    .clear-history
-      background-color: #fff;
-      color: $blue;
-      font-size: 0.7rem;
-      line-height: 2rem;
+        padding: 0 0.3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .history-text
+          font-size: 0.7rem;
+          line-height: 2rem;
+          font-family: "Microsoft YaHei";
+          display: inline-block;
+          width: 80%;
+        .delete-icon
+          width: 1rem;
+          height: 1rem;
+      .clear-history
+        background-color: #fff;
+        color: $blue;
+        font-size: 0.7rem;
+        line-height: 2rem;
+        font-family: "Microsoft YaHei";
+        font-weight: bold;
+        text-align: center;
+    .search_none
+      margin: 0 auto;
+      font-size: 0.65rem;
+      line-height: 1.75rem;
       font-family: "Microsoft YaHei";
-      font-weight: bold;
+      color: #333;
+      background-color: #fff;
       text-align: center;
-  .search_none
-    margin: 0 auto;
-    font-size: 0.65rem;
-    line-height: 1.75rem;
-    font-family: "Microsoft YaHei";
-    color: #333;
-    background-color: #fff;
-    text-align: center;
-    margin-top: 0.125rem;
+      margin-top: 0.125rem;
 </style>

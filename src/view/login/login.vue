@@ -190,108 +190,108 @@
     padding-top: 1.95rem;
     p, span, input
       font-family: Helvetica Neue, Tahoma, Arial;
-  .change-login
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.7rem;
-    color: #fff;
-  .login-form
-    background-color: #fff;
-    margin-top: 0.6rem;
-    .input-container
-      display: flex;
-      justify-content: space-between;
-      padding: 0.6rem 0.8rem;
-      border-bottom: 1px solid #f1f1f1;
-      input
-        font-size: 0.7rem;
-        color: #666;
-      button
-        font-size: 0.65rem;
-        color: #fff;
-        font-family: Helvetica Neue,Tahoma,Arial;
-        padding: .28rem .4rem;
-        border: 1px;
-        border-radius: 0.15rem;
-      .right-phone-number
-        background-color: #4cd964;
-    .phone-number
-      padding: 0.3rem 0.8rem;
-    .captcha-code-container
-      height: 2.2rem;
-      .img-change-img
-        display: flex;
-        align-items: center;
-        img
-          width: 3.5rem;
-          height: 1.5rem;
-          margin-right: .2rem;
-        .change-img
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          width: 2rem;
-          justify-content: center;
-          p
-            font-size: 0.55rem;
-            color: #666;
-          p:nth-of-type(2)
-            color: #3b95e9;
-            margin-top: .2rem;
-  .login-tips
-    font-size: 0.5rem;
-    color: #999;
-    padding: .4rem .6rem;
-    line-height: .7rem;
-    a
-      color: #3b95e9;
-  .login-button
-    margin: 0 .5rem 1rem;
-    font-size: 0.7rem;
-    color: #fff;
-    background-color: #4cd964;
-    padding: .5rem 0;
-    border: 1px;
-    border-radius: 0.15rem;
-    text-align: center;
-  .button-switch
-    background-color: #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 2rem;
-    height: 0.7rem;
-    padding: 0 .2rem;
-    border: 1px;
-    border-radius: 0.5rem;
-    position: relative;
-    transition: all .3s;
-    .circle-button
-      transition: all .3s;
+    .change-login
       position: absolute;
-      z-index: 1;
-      width: 1.2rem;
-      height: 1.2rem;
-      left: -.1rem;
-      box-shadow: 0 0.026667rem 0.053333rem 0 rgba(0,0,0,.1);
-      background-color: #f1f1f1;
-      border-radius: 50%;
-    .trans-to-right
-      transform: translateX(1.3rem);
-    span
-      font-size: 0.45rem;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
       color: #fff;
-      transform: translateY(.05rem);
-      line-height: .6rem;
-    span:nth-of-type(2)
-      transform: translateY(-.08rem);
-  .change-to-text
-    background-color: #4cd964;
-  .to-forget
-    float: right;
-    font-size: 0.6rem;
-    color: #3b95e9;
-    margin-right: 0.3rem;
+    .login-form
+      background-color: #fff;
+      margin-top: 0.6rem;
+      .input-container
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem 0.8rem;
+        border-bottom: 1px solid #f1f1f1;
+        input
+          font-size: 0.7rem;
+          color: #666;
+        button
+          font-size: 0.65rem;
+          color: #fff;
+          font-family: Helvetica Neue,Tahoma,Arial;
+          padding: .28rem .4rem;
+          border: 1px;
+          border-radius: 0.15rem;
+        .right-phone-number
+          background-color: #4cd964;
+      .phone-number
+        padding: 0.3rem 0.8rem;
+      .captcha-code-container
+        height: 2.2rem;
+        .img-change-img
+          display: flex;
+          align-items: center;
+          img
+            width: 3.5rem;
+            height: 1.5rem;
+            margin-right: .2rem;
+          .change-img
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 2rem;
+            justify-content: center;
+            p
+              font-size: 0.55rem;
+              color: #666;
+            p:nth-of-type(2)
+              color: #3b95e9;
+              margin-top: .2rem;
+    .login-tips
+      font-size: 0.5rem;
+      color: #999;
+      padding: .4rem .6rem;
+      line-height: .7rem;
+      a
+        color: #3b95e9;
+    .login-button
+      margin: 0 .5rem 1rem;
+      font-size: 0.7rem;
+      color: #fff;
+      background-color: #4cd964;
+      padding: .5rem 0;
+      border: 1px;
+      border-radius: 0.15rem;
+      text-align: center;
+    .button-switch
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 2rem;
+      height: 0.7rem;
+      padding: 0 .2rem;
+      border: 1px;
+      border-radius: 0.5rem;
+      position: relative;
+      transition: all .3s;
+      .circle-button
+        transition: all .3s;
+        position: absolute;
+        z-index: 1;
+        width: 1.2rem;
+        height: 1.2rem;
+        left: -.1rem;
+        box-shadow: 0 0.026667rem 0.053333rem 0 rgba(0,0,0,.1);
+        background-color: #f1f1f1;
+        border-radius: 50%;
+      .trans-to-right
+        transform: translateX(1.3rem);
+      span
+        font-size: 0.45rem;
+        color: #fff;
+        transform: translateY(.05rem);
+        line-height: .6rem;
+      span:nth-of-type(2)
+        transform: translateY(-.08rem);
+    .change-to-text
+      background-color: #4cd964;
+    .to-forget
+      float: right;
+      font-size: 0.6rem;
+      color: #3b95e9;
+      margin-right: 0.3rem;
 </style>
