@@ -52,16 +52,15 @@ export default [{
     {
       path: '/profile',
       component: profile,
-      children: [
-        {
+      children: [{
           path: 'info',
           component: info,
           children: [{
-            path: 'add',
-            component: add,
+            path: 'address',
+            component: address,
             children: [{
-              path: 'address',
-              component: address, // 编辑地址
+              path: 'add',
+              component: add, // 编辑地址
               children: [{
                 path: 'addDetail',
                 component: addDetail
@@ -74,10 +73,9 @@ export default [{
           component: setusername
         },
         {
-          path: 'service', // 服务中心
+          path: '/service', // 服务中心
           component: service
-        }
-      ]
+        }]
     },
     // 修改密码页
     {
