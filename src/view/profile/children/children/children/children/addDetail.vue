@@ -7,5 +7,5 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-
+  @import "../../../../../../assets/stylus/mixin.styl";
 </style>

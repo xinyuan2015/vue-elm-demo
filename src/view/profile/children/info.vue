@@ -310,7 +310,7 @@
         opacity: 0.2;
       .cover-content
         width: 94%;
-        background:$fc;
+        background: $fc;
         padding:17px;
         position:absolute;
         top:20%;
