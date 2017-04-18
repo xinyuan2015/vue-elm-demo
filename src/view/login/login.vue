@@ -263,7 +263,7 @@
       justify-content: space-between;
       width: 2rem;
       height: 0.7rem;
-      padding: 0 .2rem;
+      padding: 0 0.2rem;
       border: 1px;
       border-radius: 0.5rem;
       position: relative;
@@ -274,7 +274,8 @@
         z-index: 1;
         width: 1.2rem;
         height: 1.2rem;
-        left: -.1rem;
+        top: -0.25rem;
+        left: -0.1rem;
         box-shadow: 0 0.026667rem 0.053333rem 0 rgba(0,0,0,.1);
         background-color: #f1f1f1;
         border-radius: 50%;
@@ -283,10 +284,9 @@
       span
         font-size: 0.45rem;
         color: #fff;
-        transform: translateY(.05rem);
-        line-height: .6rem;
+        line-height: 0.6rem;
       span:nth-of-type(2)
-        transform: translateY(-.08rem);
+        transform: translateY(-0.1rem);
     .change-to-text
       background-color: #4cd964;
     .to-forget

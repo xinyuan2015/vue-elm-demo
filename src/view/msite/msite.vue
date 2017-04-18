@@ -90,9 +90,11 @@
         this.foodTypes = foodArr;
       }).then(() => {
         // 初始化swiper
-        this.swiper = new Swiper('.swiper-container', {
-          pagination: '.swiper-pagination',
-          loop: true
+        this.$nextTick(() => {
+          this.swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            loop: true
+          });
         });
       });
     },
