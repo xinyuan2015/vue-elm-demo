@@ -13,6 +13,7 @@ const add = r => require.ensure([], () => r(require('../view/profile/children/ch
 const address = r => require.ensure([], () => r(require('../view/profile/children/children/address')), 'address');
 const addDetail = r => require.ensure([], () => r(require('../view/profile/children/children/children/children/addDetail')), 'addDetail');
 const service = r => require.ensure([], () => r(require('../view/service/service')), 'service');
+const questionDetail = r => require.ensure([], () => r(require('../view/service/children/questionDetail')), 'questionDetail');
 
 export default [{
   path: '/',
@@ -71,16 +72,21 @@ export default [{
         {
           path: 'setusername',
           component: setusername
-        },
-        {
-          path: '/service', // 服务中心
-          component: service
         }]
     },
     // 修改密码页
     {
       path: '/forget',
       component: forget
+    },
+    // 服务中心
+    {
+      path: '/service',
+      component: service,
+      children: [{
+        path: 'questionDetail',
+        component: questionDetail
+      }]
     }
   ]
 }];
