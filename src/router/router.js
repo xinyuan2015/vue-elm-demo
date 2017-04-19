@@ -14,6 +14,10 @@ const address = r => require.ensure([], () => r(require('../view/profile/childre
 const addDetail = r => require.ensure([], () => r(require('../view/profile/children/children/children/children/addDetail')), 'addDetail');
 const service = r => require.ensure([], () => r(require('../view/service/service')), 'service');
 const questionDetail = r => require.ensure([], () => r(require('../view/service/children/questionDetail')), 'questionDetail');
+const shop = r => require.ensure([], () => r(require('../view/shop/shop')), 'shop');
+const shopDetail = r => require.ensure([], () => r(require('../view/shop/children/shopDetail')), 'shopDetail');
+const foodDetail = r => require.ensure([], () => r(require('../view/shop/children/foodDetail')), 'foodDetail');
+const shopSafe = r => require.ensure([], () => r(require('../view/shop/children/children/shopSafe')), 'shopSafe');
 
 export default [{
   path: '/',
@@ -43,6 +47,27 @@ export default [{
     {
       path: '/search/:geohash',
       component: search
+    },
+    // 商铺详情页
+    {
+      path: '/shop',
+      component: shop,
+      children: [
+        {
+          path: 'foodDetail', // 食品详情页
+          component: foodDetail
+        },
+        {
+          path: 'shopDetail', // 商铺详情页
+          components: shopDetail,
+          children: [
+            {
+              path: 'shopSafe', // 商铺安全认证页
+              component: shopSafe
+            }
+          ]
+        }
+      ]
     },
     // 登陆注册页
     {
