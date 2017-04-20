@@ -1,5 +1,5 @@
 <template>
-  <div class="rating-container">
+  <div class="rating-star">
     <section class="star-container">
       <svg class="grey-fill" v-for="num in 5" :key="num">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star"></use>
@@ -26,7 +26,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../assets/stylus/mixin.styl";
-  .rating-container
+  .rating-star
     position: relative;
     width: 2rem;
     height: 0.4rem;
