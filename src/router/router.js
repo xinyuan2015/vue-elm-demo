@@ -59,7 +59,7 @@ export default [{
         },
         {
           path: 'shopDetail', // 商铺详情页
-          components: shopDetail,
+          component: shopDetail,
           children: [
             {
               path: 'shopSafe', // 商铺安全认证页

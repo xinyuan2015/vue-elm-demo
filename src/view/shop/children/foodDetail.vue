@@ -1,5 +1,5 @@
 <template>
-  <div class="rating-page">
+  <div class="fooddetail-page">
     <head-top :head-title="name" go-back="true"></head-top>
     <section class="header-img">
       <img :src="getImgPath(image_path)" class="food-img">
@@ -72,7 +72,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../../assets/stylus/mixin.styl";
 
-  .rating-page
+  .fooddetail-page
     position: absolute;
     top: 0;
     left: 0;
