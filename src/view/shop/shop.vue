@@ -308,8 +308,7 @@
     <transition name="fade">
       <p class="show-delete-tip" v-if="showDeleteTip">多规格商品只能去购物车删除哦</p>
     </transition>
-    <transition appear @after-appear="afterEnter" @before-appear="beforeEnter" v-for="(item,index) in showMoveDot"
-                :key="movedot">
+    <transition appear @after-appear="afterEnter" @before-appear="beforeEnter" v-for="(item,index) in showMoveDot" :key="index">
       <span class="move-dot" v-if="item">
           <svg class="move-liner">
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart-add"></use>
