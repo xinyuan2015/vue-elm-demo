@@ -1,12 +1,16 @@
 import App from '../App';
 
 const home = r => require.ensure([], () => r(require('../view/home/home')), 'home');
+
 const city = r => require.ensure([], () => r(require('../view/city/city')), 'home');
 const msite = r => require.ensure([], () => r(require('../view/msite/msite')), 'msite');
+
 const search = r => require.ensure([], () => r(require('../view/search/search')), 'search');
+
 const login = r => require.ensure([], () => r(require('../view/login/login')), 'login');
-const profile = r => require.ensure([], () => r(require('../view/profile/profile')), 'profile');
 const forget = r => require.ensure([], () => r(require('../view/forget/forget')), 'forget');
+
+const profile = r => require.ensure([], () => r(require('../view/profile/profile')), 'profile');
 const info = r => require.ensure([], () => r(require('../view/profile/children/info')), 'info');
 const setusername = r => require.ensure([], () => r(require('../view/profile/children/setusername')), 'setusername');
 const add = r => require.ensure([], () => r(require('../view/profile/children/children/children/add')), 'add');
@@ -14,10 +18,22 @@ const address = r => require.ensure([], () => r(require('../view/profile/childre
 const addDetail = r => require.ensure([], () => r(require('../view/profile/children/children/children/children/addDetail')), 'addDetail');
 const service = r => require.ensure([], () => r(require('../view/service/service')), 'service');
 const questionDetail = r => require.ensure([], () => r(require('../view/service/children/questionDetail')), 'questionDetail');
+
 const shop = r => require.ensure([], () => r(require('../view/shop/shop')), 'shop');
 const shopDetail = r => require.ensure([], () => r(require('../view/shop/children/shopDetail')), 'shopDetail');
 const foodDetail = r => require.ensure([], () => r(require('../view/shop/children/foodDetail')), 'foodDetail');
 const shopSafe = r => require.ensure([], () => r(require('../view/shop/children/children/shopSafe')), 'shopSafe');
+const food = r => require.ensure([], () => r(require('../view/food/food')), 'food');
+
+const confirmOrder = r => require.ensure([], () => r(require('../view/confirmOrder/confirmOrder')), 'confirmOrder');
+const remark = r => require.ensure([], () => r(require('../view/confirmOrder/children/remark')), 'remark');
+const payment = r => require.ensure([], () => r(require('../view/confirmOrder/children/payment')), 'payment');
+const userValidation = r => require.ensure([], () => r(require('../view/confirmOrder/children/userValidation')), 'userValidation');
+const invoice = r => require.ensure([], () => r(require('../view/confirmOrder/children/invoice')), 'invoice');
+const chooseAddress = r => require.ensure([], () => r(require('../view/confirmOrder/children/chooseAddress')), 'chooseAddress');
+const addAddress = r => require.ensure([], () => r(require('../view/confirmOrder/children/children/addAddress')), 'addAddress');
+const searchAddress = r => require.ensure([], () => r(require('../view/confirmOrder/children/children/children/searchAddress')), 'searchAddress');
+
 const order = r => require.ensure([], () => r(require('../view/order/order')), 'order');
 const orderDetail = r => require.ensure([], () => r(require('../view/order/children/orderDetail')), 'orderDetail');
 
@@ -50,31 +66,15 @@ export default [{
       path: '/search/:geohash',
       component: search
     },
-    // 商铺详情页
-    {
-      path: '/shop',
-      component: shop,
-      children: [
-        {
-          path: 'foodDetail', // 食品详情页
-          component: foodDetail
-        },
-        {
-          path: 'shopDetail', // 商铺详情页
-          component: shopDetail,
-          children: [
-            {
-              path: 'shopSafe', // 商铺安全认证页
-              component: shopSafe
-            }
-          ]
-        }
-      ]
-    },
     // 登陆注册页
     {
       path: '/login',
       component: login
+    },
+    // 修改密码页
+    {
+      path: '/forget',
+      component: forget
     },
     // 个人信息页
     {
@@ -101,10 +101,69 @@ export default [{
           component: setusername
         }]
     },
-    // 修改密码页
+    // 服务中心
     {
-      path: '/forget',
-      component: forget
+      path: '/service',
+      component: service,
+      children: [{
+        path: 'questionDetail',
+        component: questionDetail
+      }]
+    },
+    // 商铺详情页
+    {
+      path: '/shop',
+      component: shop,
+      children: [
+        {
+          path: 'foodDetail', // 食品详情页
+          component: foodDetail
+        },
+        {
+          path: 'shopDetail', // 商铺详情页
+          component: shopDetail,
+          children: [
+            {
+              path: 'shopSafe', // 商铺安全认证页
+              component: shopSafe
+            }
+          ]
+        }
+      ]
+    },
+    // 特色商铺列表页
+    {
+      path: '/food',
+      component: food
+    },
+    // 确认订单页
+    {
+      path: '/confirmOrder',
+      component: confirmOrder,
+      children: [{
+        path: 'remark', // 订单备注
+        component: remark
+      }, {
+        path: 'invoice', // 发票抬头
+        component: invoice
+      }, {
+        path: 'payment', // 付款页面
+        component: payment
+      }, {
+        path: 'userValidation', // 用户验证
+        component: userValidation
+      }, {
+        path: 'chooseAddress', // 选择地址
+        component: chooseAddress,
+        children: [{
+          path: 'addAddress', // 添加地址
+          component: addAddress,
+          children: [{
+            path: 'searchAddress', // 搜索地址
+            component: searchAddress
+          }]
+        }]
+      }]
     },
     // 订单列表页
     {
@@ -113,15 +172,6 @@ export default [{
       children: [{
         path: 'orderDetail',
         component: orderDetail
-      }]
-    },
-    // 服务中心
-    {
-      path: '/service',
-      component: service,
-      children: [{
-        path: 'questionDetail',
-        component: questionDetail
       }]
     }
   ]
