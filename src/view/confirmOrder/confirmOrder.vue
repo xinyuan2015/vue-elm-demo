@@ -313,4 +313,222 @@
       background-color: #fff;
       margin-top: .4rem;
       padding: 0 .7rem;
+    .address-container
+      min-height: 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0.6rem;
+      background: url(../../assets/images/address_bottom.png) left bottom repeat-x;
+      background-color: #fff;
+      background-size: auto 0.12rem;
+      .address-empty-left
+        display: flex;
+        align-items: center;
+        .location-icon
+          width: 0.8rem;
+          height: 0.8rem;
+          fill: $blue;
+          margin-right: 0.2rem;
+        .add-address
+          font-size: 0.7rem;
+          color: #333;
+        .address-detail-container
+          margin-left: 0.2rem;
+          header
+            font-size: 0.65rem;
+            color: #333;
+            span:nth-of-type(1)
+              font-size: .8rem;
+              font-weight: bold;
+          .address-detail
+            width: 100%;
+            display: flex;
+            align-items: center;
+            span
+              font-size: 0.5rem;
+              color: #fff;
+              border-radius: .15rem;
+              background-color: #ff5722;
+              height: .6rem;
+              line-height: .6rem;
+              padding: 0 .2rem;
+              margin-right: .3rem;
+            p
+              font-size: 0.55rem;
+              color: #777;
+    .address-empty-right
+      width: 0.6rem;
+      height: 0.6rem;
+      fill: #999;
+    .delivery-model
+      border-left: .2rem solid $blue;
+      min-height: 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .delivery-text
+        font-size: 0.8rem;
+        color: #333;
+        font-weight: bold;
+        padding-left: .3rem;
+      .delivery-time
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        p:nth-of-type(1)
+          font-size: 0.7rem;
+          color: $blue;
+        p:nth-of-type(2)
+          font-size: 0.5rem;
+          color: #fff;
+          background-color: $blue;
+          width: 2.4rem;
+          margin-top: .5rem;
+          text-align: center;
+          border-radius: 0.12rem;
+          padding: .1rem;
+    .pay-way
+      .header-style
+        display: flex;
+        justify-content: space-between;
+        line-height: 2rem;
+        span:nth-of-type(1)
+          font-size: 0.7rem;
+          color: #666;
+        .more-type
+          span:nth-of-type(1)
+            font-size: 0.6rem;
+            color: #aaa;
+            width: 10rem;
+            display: inline-block;
+            text-align: right;
+            vertical-align: middle;
+          svg
+            width: 0.5rem;
+            height: 0.5rem;
+            fill: #ccc;
+      .hongbo
+        display: flex;
+        justify-content: space-between;
+        border-top: 0.025rem solid #f5f5f5;
+        span
+          font-size: 0.6rem;
+          color: #aaa;
+          line-height: 2rem;
+          svg
+            width: 0.5rem;
+            height: 0.5rem;
+            vertical-align: middle;
+            fill: #ccc;
+        span:nth-of-type(2)
+          color: #aaa;
+      .support-is-available
+        span
+          color: #666;
+    .food-list
+      background-color: #fff;
+      margin-top: 0.4rem;
+      header
+        padding: 0.7rem;
+        border-bottom: 0.025rem solid #f5f5f5;
+        img
+          width: 1.2rem;
+          height: 1.2rem;
+          vertical-align: middle;
+        span
+          font-size: 0.5rem;
+          color: #333;
+      .food-list-ul
+        padding-top: .5rem;
+      .food-item-style
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.8rem;
+        padding: 0 .7rem;
+        span,p
+          font-size: 0.65rem;
+          color: #666;
+        .food-name
+          width: 11rem;
+        .num-price
+          flex: 1;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          span:nth-of-type(1)
+            color: #f60;
+      .total-price
+        border-top: 0.025rem solid #f5f5f5;
+    .confirm-order
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 2rem;
+      p
+        line-height: 2rem;
+        font-size: 0.75rem;
+        color: #fff;
+      p:nth-of-type(1)
+        background-color: #3c3c3c;
+        flex: 5;
+        padding-left: .7rem;
+      p:nth-of-type(2)
+        flex: 2;
+        background-color: #56d176;
+        text-align: center;
+    .cover
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,.3);
+      z-index: 203;
+    .choose-type-Container
+      min-height: 10rem;
+      background-color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 204;
+      header
+        background-color: #fafafa;
+        font-size: 0.7rem;
+        color: #333;
+        text-align: center;
+        line-height: 2rem;
+      ul
+        li
+          display: flex;
+          justify-content: space-between;
+          padding: 0 .7rem;
+          line-height: 2.5rem;
+          align-items: center;
+          span
+            font-size: 0.7rem;
+            color: #ccc;
+          svg
+            width: 0.8rem;
+            color: 0.8rem;
+            fill: #eee;
+        .choose
+          span
+            color: #333;
+          svg
+            fill: #4cd964;
+    .fade-enter-active, .fade-leave-active
+      transition: opacity .3s;
+    .fade-enter, .fade-leave-active
+      opacity: 0;
+    .slid_up-enter-active, .slid_up-leave-active
+      transition: all .3s;
+    .slid_up-enter, .slid_up-leave-active
+      transform: translate3d(0,10rem,0)
+    .router-slid-enter-active, .router-slid-leave-active
+      transition: all .4s;
+    .router-slid-enter, .router-slid-leave-active
+      transform: translate3d(2rem, 0, 0);
+      opacity: 0;
 </style>
