@@ -1,12 +1,12 @@
 <template>
   <div class="invoice-page">
     <head-top head-title="选择发票抬头" go-back="true"></head-top>
-    <scetion class="choose-invoice">
+    <section class="choose-invoice">
       <span>不需要开发票</span>
       <svg @click="chooseInvoice" :class="{'choosed': invoice}">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select"></use>
       </svg>
-    </scetion>
+    </section>
     <div class="determine" @click="confirmInvoice">确定</div>
   </div>
 </template>
@@ -26,7 +26,7 @@
         'CONFIRM_INVOICE'
       ]),
       // 是否选择发票
-      chooseInvoive() {
+      chooseInvoice() {
         this.invoice = !this.invoice;
       },
       // 保存发票信息

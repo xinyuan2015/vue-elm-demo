@@ -176,7 +176,7 @@
         let str = '';
         if (this.remarkText) {
           Object.values(this.remarkText).forEach(item => {
-            str += item[1] + ',';
+            str += item[1] + ', ';
           });
         }
         // 是否有自定义备注
