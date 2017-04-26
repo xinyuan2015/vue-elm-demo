@@ -450,7 +450,7 @@
           font-size: 0.65rem;
           color: #666;
         .food-name
-          width: 11rem;
+          width: 10rem;
         .num-price
           flex: 1;
           display: flex;
