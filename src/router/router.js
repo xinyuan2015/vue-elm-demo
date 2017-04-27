@@ -37,6 +37,15 @@ const searchAddress = r => require.ensure([], () => r(require('../view/confirmOr
 const order = r => require.ensure([], () => r(require('../view/order/order')), 'order');
 const orderDetail = r => require.ensure([], () => r(require('../view/order/children/orderDetail')), 'orderDetail');
 
+const balance = r => require.ensure([], () => r(require('../view/balance/balance')), 'balance');
+const balanceDetail = r => require.ensure([], () => r(require('../view/balance/children/detail')), 'balanceDetail');
+
+const points = r => require.ensure([], () => r(require('../view/points/points')), 'points');
+const pointsDetail = r => require.ensure([], () => r(require('../view/points/children/detail')), 'pointsDetail');
+
+const find = r => require.ensure([], () => r(require('../view/find/find')), 'find');
+const download = r => require.ensure([], () => r(require('../view/download/download')), 'download');
+
 export default [{
   path: '/',
   component: App, // 顶层路由，对应index.html
@@ -173,6 +182,34 @@ export default [{
         path: 'orderDetail',
         component: orderDetail
       }]
+    },
+    // 余额
+    {
+      path: 'balance',
+      component: balance,
+      children: [{
+        path: 'detail', // 余额说明
+        component: balanceDetail
+      }]
+    },
+    // 我的积分页
+    {
+      path: 'points',
+      component: points,
+      children: [{
+        path: 'detail', // 积分说明
+        component: pointsDetail
+      }]
+    },
+    // 发现页
+    {
+      path: '/find',
+      component: find
+    },
+    // 下载页
+    {
+      path: '/download',
+      component: download
     }
   ]
 }];

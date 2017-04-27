@@ -18,18 +18,18 @@
           <div class="zhifubao"></div>
           <span>支付宝</span>
         </div>
-        <svg class="choose-icon" @click="payWay = 1" :class="{choosed_way: payWay == 1}">
+        <svg class="choose-icon" @click="payWay = 1" :class="{'choosed-way': payWay == 1}">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select"></use>
         </svg>
       </section>
       <section class="pay-item">
-        <div class="pay-icon-contaienr">
+        <div class="pay-icon-container">
           <svg>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#weixin"></use>
           </svg>
           <span>微信</span>
         </div>
-        <svg class="choose-icon" @click="payWay = 2" :class="{choosed_way: payWay == 2}">
+        <svg class="choose-icon" @click="payWay = 2" :class="{'choosed-way': payWay == 2}">
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select"></use>
         </svg>
       </section>
@@ -182,7 +182,7 @@
         align-items: center;
         line-height: 2.6rem;
         border-bottom: 0.025rem solid #f5f5f5;
-        .pay-icon-contaienr
+        .pay-icon-container
           display: flex;
           justify-content: space-between;
           align-items: center;
