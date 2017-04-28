@@ -46,6 +46,13 @@ const pointsDetail = r => require.ensure([], () => r(require('../view/points/chi
 const find = r => require.ensure([], () => r(require('../view/find/find')), 'find');
 const download = r => require.ensure([], () => r(require('../view/download/download')), 'download');
 
+const benefit = r => require.ensure([], () => r(require('../view/benefit/benefit')), 'benefit');
+const coupon = r => require.ensure([], () => r(require('../view/benefit/children/coupon')), 'coupon');
+const hbDescription = r => require.ensure([], () => r(require('../view/benefit/children/hbDescription')), 'hbDescription');
+const hbHistory = r => require.ensure([], () => r(require('../view/benefit/children/hbHistory')), 'hbHistory');
+const exchange = r => require.ensure([], () => r(require('../view/benefit/children/exchange')), 'exchange');
+const commend = r => require.ensure([], () => r(require('../view/benefit/children/commend')), 'commend');
+
 export default [{
   path: '/',
   component: App, // 顶层路由，对应index.html
@@ -210,6 +217,27 @@ export default [{
     {
       path: '/download',
       component: download
+    },
+    // 我的优惠页
+    {
+      path: 'benefit',
+      component: benefit,
+      children: [{
+          path: 'coupon',
+          component: coupon
+        }, {
+          path: 'hbDescription',
+          component: hbDescription
+        }, {
+          path: 'hbHistory',
+          component: hbHistory
+        }, {
+          path: 'exchange',
+          component: exchange
+        }, {
+          path: 'commend',
+          component: commend
+      }]
     }
   ]
 }];
