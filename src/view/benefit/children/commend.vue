@@ -68,8 +68,6 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../../assets/stylus/mixin.styl";
-
   .commend-page
     position: fixed;
     top: 0;
