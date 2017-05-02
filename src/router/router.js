@@ -53,6 +53,11 @@ const hbHistory = r => require.ensure([], () => r(require('../view/benefit/child
 const exchange = r => require.ensure([], () => r(require('../view/benefit/children/exchange')), 'exchange');
 const commend = r => require.ensure([], () => r(require('../view/benefit/children/commend')), 'commend');
 
+const vipcard = r => require.ensure([], () => r(require('../view/vipcard/vipcard')), 'vipcard');
+const invoiceRecord = r => require.ensure([], () => r(require('../view/vipcard/children/invoiceRecord')), 'invoiceRecord');
+const useCart = r => require.ensure([], () => r(require('../view/vipcard/children/useCart')), 'useCart');
+const vipDescription = r => require.ensure([], () => r(require('../view/vipcard/children/vipDescription')), 'vipDescription');
+
 export default [{
   path: '/',
   component: App, // 顶层路由，对应index.html
@@ -237,6 +242,21 @@ export default [{
         }, {
           path: 'commend',
           component: commend
+      }]
+    },
+    // vip卡页
+    {
+      path: '/vipcard',
+      component: vipcard,
+      children: [{
+        path: 'invoiceRecord', // 开发票
+        component: invoiceRecord
+      }, {
+        path: 'useCart', // 购买会员卡
+        component: useCart
+      }, {
+        path: 'vipDescription', // 会员说明
+        component: vipDescription
       }]
     }
   ]
