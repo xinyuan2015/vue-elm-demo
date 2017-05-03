@@ -1,12 +1,10 @@
 <template>
-  <div class="shop-page">
-
+  <div class="shop-header-page">
+    
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import loading from 'components/common/loading';
-
   export default {
     data() {
       return {
