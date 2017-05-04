@@ -10,13 +10,26 @@
           <span :class="{'activity-show': changeShowType =='rating'}" @click="changeShowType='rating'">评价</span>
         </div>
       </section>
+      <transition name="fade-choose">
+        <section v-show="changeShowType =='food'" class="food-container">
+          <shop-food></shop-food>
+        </section>
+      </transition>
+      <transition name="fade-choose">
+        <section v-show="changeShowType =='rating'" class="rating-container" id="ratingContainer">
+          <shop-rating></shop-rating>
+        </section>
+      </transition>
     </section>
+    <loading v-show="showLoading"></loading>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import loading from 'components/common/loading';
   import shopHeader from '../shop/shopHeader.vue';
+  import shopFood from '../shop/shopFood.vue';
+  import shopRating from '../shop/shopRating.vue';
   import {mapState, mapMutations} from 'vuex';
   import {msiteAdress, shopDetails, foodMenu, getRatingList, ratingScores, ratingTags} from 'service/getData';
 
@@ -66,8 +79,6 @@
         }
         // 获取商铺信息
         this.shopDetailData = await shopDetails(this.shopId, this.latitude, this.longitude);
-
-        console.log(this.shopDetailData);
         // 获取商铺食品列表
         this.menuList = await foodMenu(this.shopId);
         // 评论列表
@@ -97,7 +108,9 @@
     },
     components: {
       loading,
-      shopHeader
+      shopHeader,
+      shopFood,
+      shopRating
     }
   };
 </script>
