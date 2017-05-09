@@ -151,18 +151,10 @@
       ]),
       _initScroll: function () {
         this.menuScroll = new BScroll(this.$refs.foodMenu, {
-          probeType: 3,
-          click: true,
-          deceleration: 0.001,
-          bounce: false,
-          swipeTime: 2000
+          click: true
         });
-        console.log(this.$refs.foodMenu);
         this.foodsScroll = new BScroll(this.$refs.foodsList, {
           click: true,
-          deceleration: 0.001,
-          bounce: false,
-          swipeTime: 2000,
           probeType: 3
         });
         this.foodsScroll.on('scroll', (pos) => {
@@ -180,10 +172,7 @@
         }
       },
       // 点击左侧食品列表标题，相应列表移动到最顶层
-      selectMenu(index, event) {
-        if (!event._constructed) {
-          return;
-        }
+      selectMenu(index) {
         let foodList = this.$refs.foodsList.getElementsByClassName('food-hook');
         let el = foodList[index];
         this.foodsScroll.scrollToElement(el, 300);
@@ -261,7 +250,6 @@
     .menu-container
       display: flex;
       flex: 1;
-      overflow-y: hidden;
       position: absolute;
       top: 7.4rem;
       left: 0;
@@ -303,7 +291,6 @@
             font-weight: bold;
       .menu-right
         flex: 4;
-        overflow-y: auto;
         .menu-detail-header
           width: 100%;
           padding: .4rem;
