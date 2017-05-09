@@ -2,7 +2,7 @@
   <div class="shop-page">
     <section v-if="!showLoading" class="shop-container">
       <shop-header :shop-detail-data="shopDetailData"></shop-header>
-      <section class="change-show-type" ref="chooseType">
+      <section class="change-show-type">
         <div>
           <span :class="{'activity-show': changeShowType =='food'}" @click="changeShowType='food'">商品</span>
         </div>
@@ -12,7 +12,7 @@
       </section>
       <transition name="fade-choose">
         <section v-show="changeShowType =='food'" class="food-container">
-          <shop-food></shop-food>
+          <shop-food :food="menuList" :shop-detail="shopDetailData" :shop-id="shopId"></shop-food>
         </section>
       </transition>
       <transition name="fade-choose">
@@ -41,7 +41,8 @@
         showLoading: true, // 显示加载动画
         shopDetailData: null, // 商铺详情
         changeShowType: 'food', // 切换显示商品或者评价
-        ratingOffset: 0 // 评价获取数据offset值
+        ratingOffset: 0, // 评价获取数据offset值
+        menuList: [] // 食品列表
       };
     },
     created() {
@@ -142,4 +143,8 @@
         .activity-show
           color: #3190e8;
           border-color: #3190e8;
+    .food-container
+      display: flex;
+      flex: 1;
+      padding-bottom: 2rem;
 </style>
