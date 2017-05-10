@@ -17,7 +17,7 @@
       </transition>
       <transition name="fade-choose">
         <section v-show="changeShowType =='rating'" class="rating-container" id="ratingContainer">
-          <shop-rating></shop-rating>
+          <shop-rating :change-show-type="changeShowType" :rating-info="ratingList" :rating-scores-data="ratingScoresData" :rating-tags-list="ratingTagsList" :shop-detail-data="shopDetailData"></shop-rating>
         </section>
       </transition>
     </section>
@@ -41,8 +41,10 @@
         showLoading: true, // 显示加载动画
         shopDetailData: null, // 商铺详情
         changeShowType: 'food', // 切换显示商品或者评价
-        ratingOffset: 0, // 评价获取数据offset值
-        menuList: [] // 食品列表
+        menuList: [], // 食品列表
+        ratingList: null, // 评价列表
+        ratingScoresData: null, // 评价总体分数
+        ratingTagsList: null // 评价分类列表
       };
     },
     created() {
@@ -105,8 +107,6 @@
         }
       }
     },
-    watch: {
-    },
     components: {
       loading,
       shopHeader,
@@ -143,6 +143,11 @@
         .activity-show
           color: #3190e8;
           border-color: #3190e8;
+    .rating-container
+      display: flex;
+      flex: 1;
+      p, span, li, time
+        font-family: Helvetica Neue,Tahoma,Arial;
     .food-container
       display: flex;
       flex: 1;
