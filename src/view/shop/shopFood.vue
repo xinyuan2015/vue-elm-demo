@@ -25,7 +25,7 @@
                 {{item.description}}
               </p>
             </header>
-            <section v-for="(foods,foodindex) in item.foods" :key="foodindex" class="menu-detail-list" @click.stop.prevent="selectFood(foods,$event)">
+            <section v-for="(foods,foodindex) in item.foods" :key="foodindex" class="menu-detail-list">
               <router-link
                 :to="{path: 'shop/foodDetail', query:{image_path:foods.image_path, description: foods.description, month_sales: foods.month_sales, name: foods.name, rating: foods.rating, rating_count: foods.rating_count, satisfy_rate: foods.satisfy_rate, foods, shopId}}"
                 tag="div" class="menu-detail-link">
@@ -60,7 +60,7 @@
                   <span>{{foods.specfoods[0].price}}</span>
                   <span v-if="foods.specifications.length">起</span>
                 </section>
-                <buy-cart :shopId='shopId' :foods='foods' @showMoveDot="showShopCartDot" @showChooseList="showChooseList" @showReduceTip="showReduceTip"></buy-cart>
+                <buy-cart :shop-id='shopId' :foods='foods' @showMoveDot="showShopCartDot" @showChooseList="showChooseList" @showReduceTip="showReduceTip"></buy-cart>
               </footer>
             </section>
           </li>
@@ -68,7 +68,7 @@
       </section>
     </section>
     <section class="shop-cart-container">
-      <shop-cart :menu-list="menuList" :shop-detail-data="shopDetailData" :shop-id="shopId" :geohash="geohash"></shop-cart>
+      <shop-cart ref="shopcart" :menu-list="menuList" :shop-detail-data="shopDetailData" :shop-id="shopId" :geohash="geohash"></shop-cart>
     </section>
     <section>
       <transition name="fade">
@@ -141,7 +141,6 @@
         goods: [],
         listHeight: [],
         scrollY: 0,
-        selectedFood: {},
         menuScroll: null,
         foodsScroll: null
       };
@@ -217,13 +216,6 @@
         let foodList = this.$refs.foodsList.getElementsByClassName('food-hook');
         let el = foodList[index];
         this.foodsScroll.scrollToElement(el, 300);
-      },
-      selectFood: function (food, event) {
-        if (!event._constructed) {
-          return;
-        }
-        this.selectedFood = food;
-        this.$refs.foodsList.show();
       },
       showTitleDetail(index) {
         if (this.TitleDetailIndex === index) {

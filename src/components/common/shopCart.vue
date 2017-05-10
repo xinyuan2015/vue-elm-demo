@@ -21,6 +21,15 @@
         </router-link>
       </section>
     </section>
+    <div class="ball-container">
+      <div class="ball-list" v-for="ball in balls">
+        <transition name="drop" @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop">
+          <div class="ball" v-show="ball.show">
+            <div class="inner inner-hook"></div>
+          </div>
+        </transition>
+      </div>
+    </div>
     <transition name="toggle-cart">
       <section class="cart-food-list" v-show="showCartList&&cartFoodList.length">
         <header>
@@ -44,15 +53,13 @@
                 <span>{{item.price}}</span>
               </div>
               <section class="cart-list-control">
-                      <span
-                        @click="removeOutCart(item.category_id, item.item_id, item.food_id, item.name, item.price, item.specs)">
-                        <svg>
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart-minus"></use>
-                        </svg>
-                      </span>
+                <span @click="removeOutCart(item.category_id, item.item_id, item.food_id, item.name, item.price, item.specs)">
+                  <svg>
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart-minus"></use>
+                  </svg>
+                </span>
                 <span class="cart-num">{{item.num}}</span>
-                <svg class="cart-add"
-                     @click="addToCart(item.category_id, item.item_id, item.food_id, item.name, item.price, item.specs)">
+                <svg class="cart-add" @click="addToCart(item.category_id, item.item_id, item.food_id, item.name, item.price, item.specs)">
                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart-add"></use>
                 </svg>
               </section>
@@ -60,6 +67,9 @@
           </ul>
         </section>
       </section>
+    </transition>
+    <transition name="fade">
+      <div class="screen-cover" v-show="showCartList&&cartFoodList.length" @click="toggleCartList"></div>
     </transition>
   </div>
 </template>
@@ -82,7 +92,25 @@
       return {
         totalPrice: 0, // 总共价格
         cartFoodList: [], // 购物车商品列表
-        showCartList: false // 显示购物车列表
+        showCartList: false, // 显示购物车列表
+        balls: [
+          {
+            show: false
+          },
+          {
+            show: false
+          },
+          {
+            show: false
+          },
+          {
+            show: false
+          },
+          {
+            show: false
+          }
+        ],
+        dropBalls: []
       };
     },
     created() {
@@ -186,6 +214,53 @@
       clearCart () {
         this.toggleCartList();
         this.CLEAR_CART(this.shopId);
+      },
+      drop: function (el) {
+        for (let i = 0; i < this.balls.length; i++) {
+          let ball = this.balls[i];
+          if (!ball.show) {
+            ball.show = true;
+            ball.el = el;
+            this.dropBalls.push(ball);
+            return;
+          }
+        }
+      },
+      beforeDrop: function (el) {
+        let count = this.balls.length;
+        while (count--) {
+          let ball = this.balls[count];
+          if (ball.show) {
+            let rect = ball.el.getBoundingClientRect();
+            let x = rect.left - 32;
+            let y = -(window.innerHeight - rect.top - 22);
+            el.style.display = '';
+            el.style.webkitTransform = `translate3d(0,${y}px,0)`;
+            el.style.transform = `translate3d(0,${y}px,0)`;
+            let inner = el.getElementsByClassName('inner-hook')[0];
+            inner.style.webkitTransform = `translate3d(${x}px,0,0)`;
+            inner.style.transform = `translate3d(${x}px,0,0)`;
+          }
+        }
+      },
+      dropping: function (el, done) {
+        /* eslint-disable no-unused-vars */
+        let rf = el.offsetHeight;
+        this.$nextTick(() => {
+          el.style.webkitTransform = 'translate3d(0,0,0)';
+          el.style.transform = 'translate3d(0,0,0)';
+          let inner = el.getElementsByClassName('inner-hook')[0];
+          inner.style.webkitTransform = 'translate3d(0,0,0)';
+          inner.style.transform = 'translate3d(0,0,0)';
+          el.addEventListener('transitionend', done);
+        });
+      },
+      afterDrop: function (el) {
+        let ball = this.dropBalls.shift();
+        if (ball) {
+          ball.show = false;
+          el.style.display = 'none';
+        }
       }
     },
     watch: {
@@ -268,6 +343,22 @@
           font-weight: bold;
       .gotopay-acitvity
         background-color: #4cd964;
+    .ball-container
+      .ball-list
+        position: relative
+        .ball
+          position: fixed
+          left: 32px
+          bottom: 22px
+          z-index: 200
+          &.drop-enter-active
+            transition: all 0.6s cubic-bezier(0.49, -0.29, 0.79, 0.41)
+            .inner
+              width: 16px
+              height: 16px
+              border-radius: 50%
+              background: rgb(0, 160, 220)
+              transition: all 0.6s linear
     .cart-food-list
       position: fixed;
       width: 100%;

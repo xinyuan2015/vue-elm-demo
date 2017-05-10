@@ -147,4 +147,23 @@
       display: flex;
       flex: 1;
       padding-bottom: 2rem;
+    .fade-enter-active, .fade-leave-active
+      transition: opacity .5s;
+    .fade-enter, .fade-leave-active
+      opacity: 0;
+    .fade-choose-enter-active, .fade-choose-leave-active
+      transition: opacity .5s;
+    .fade-choose-leave, .fade-choose-leave-active
+      display: none;
+    .fade-choose-enter, .fade-choose-leave-active
+      opacity: 0;
+    .router-slid-enter-active, .router-slid-leave-active
+      transition: all .4s;
+    .router-slid-enter, .router-slid-leave-active
+      transform: translate3d(2rem, 0, 0);
+      opacity: 0;
+    .toggle-cart-enter-active, .toggle-cart-leave-active
+      transition: all .3s ease-out;
+    .toggle-cart-enter, .toggle-cart-leave-active
+      transform: translateY(100%);
 </style>
