@@ -115,6 +115,9 @@
     },
     created() {
       this.INIT_BUYCART();
+      this.$nextTick(() => {
+        this.initCategoryNum();
+      });
     },
     computed: {
       ...mapState([
@@ -205,6 +208,7 @@
         });
         this.totalPrice = this.totalPrice.toFixed(2);
         this.categoryNum = [...newArr];
+        this.$emit('updateNum', this.categoryNum);
       },
       // 控制购物车列表是否显示
       toggleCartList() {

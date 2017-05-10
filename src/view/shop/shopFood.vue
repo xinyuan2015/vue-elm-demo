@@ -67,9 +67,7 @@
         </ul>
       </section>
     </section>
-    <section class="shop-cart-container">
-      <shop-cart ref="shopcart" :menu-list="menuList" :shop-detail-data="shopDetailData" :shop-id="shopId" :geohash="geohash"></shop-cart>
-    </section>
+    <shop-cart ref="shopcart" :menu-list="menuList" :shop-detail-data="shopDetailData" :shop-id="shopId" :geohash="geohash" @updateNum="updateNum"></shop-cart>
     <section>
       <transition name="fade">
         <div class="specs-cover" @click="showChooseList" v-if="showSpecs"></div>
@@ -279,6 +277,9 @@
         this.$nextTick(() => {
           this.$refs.shopcart.drop(target);
         });
+      },
+      updateNum(value) {
+        this.categoryNum = value;
       }
     },
     watch: {},
@@ -344,7 +345,7 @@
           justify-content: space-between;
           align-items: center;
           .menu-detail-header-left
-            width: 11rem;
+            width: 10rem;
             white-space: nowrap;
             overflow: hidden;
             .menu-item-title
