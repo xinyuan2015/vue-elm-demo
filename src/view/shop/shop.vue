@@ -12,7 +12,7 @@
       </section>
       <transition name="fade-choose">
         <section v-show="changeShowType =='food'" class="food-container">
-          <shop-food :food="menuList" :shop-detail="shopDetailData" :shop-id="shopId"></shop-food>
+          <shop-food :menu-list="menuList" :shop-detail-data="shopDetailData" :shop-id="shopId" :geohash="geohash"></shop-food>
         </section>
       </transition>
       <transition name="fade-choose">

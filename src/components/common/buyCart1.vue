@@ -39,6 +39,11 @@
 
   export default {
     props: ['foods', 'shopId'],
+    data() {
+      return {
+        showMoveDot: [] //  控制下落的小圆点显示隐藏
+      };
+    },
     computed: {
       ...mapState([
         'cartList'
@@ -98,7 +103,10 @@
           sku_id,
           stock
         });
-        this.$emit('showMoveDot', event.target);
+        let elLeft = event.target.getBoundingClientRect().left;
+        let elBottom = event.target.getBoundingClientRect().bottom;
+        this.showMoveDot.push(true);
+        this.$emit('showMoveDot', this.showMoveDot, elLeft, elBottom);
       },
       // 显示规格列表
       showChooseList(foodScroll) {
@@ -119,8 +127,6 @@
     .add-icon
       position: relative;
       z-index: 999;
-      display: inline-block;
-      vertical-align: middle;
     .cart-button
       display: flex;
       align-items: center;
@@ -129,17 +135,10 @@
       height: 0.9rem;
       fill: #3190e8;
     .specs-reduce-icon
-      display: inline-block;
-      vertical-align: middle;
       fill: #999;
     .cart-num
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 0.1rem;
-      margin-bottom: 0.1rem;
       font-size: 0.65rem;
       color: #666;
-      line-height: 0.9rem;
       text-align: center;
       font-family: Helvetica Neue,Tahoma;
     .choose-specification
@@ -147,9 +146,7 @@
         display: flex;
         align-items: center;
         .show-chooselist
-          display: inline-block;
-          vertical-align: middle;
-          margin-bottom: 0.1rem;
+          display: block;
           font-size: 0.55rem;
           color: #fff;
           padding: 0.1rem 0.2rem;

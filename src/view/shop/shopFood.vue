@@ -50,8 +50,7 @@
                     <span>好评率{{foods.satisfy_rate}}%</span>
                   </p>
                   <p v-if="foods.activity" class="food-activity">
-                          <span
-                            :style="{color: '#' + foods.activity.image_text_color,borderColor:'#' +foods.activity.icon_color}">{{foods.activity.image_text}}</span>
+                    <span :style="{color: '#' + foods.activity.image_text_color,borderColor:'#' +foods.activity.icon_color}">{{foods.activity.image_text}}</span>
                   </p>
                 </section>
               </router-link>
@@ -61,37 +60,81 @@
                   <span>{{foods.specfoods[0].price}}</span>
                   <span v-if="foods.specifications.length">起</span>
                 </section>
+                <buy-cart :shopId='shopId' :foods='foods' @showMoveDot="showShopCartDot" @showChooseList="showChooseList" @showReduceTip="showReduceTip"></buy-cart>
               </footer>
             </section>
           </li>
         </ul>
       </section>
     </section>
+    <section class="shop-cart-container">
+      <shop-cart :menu-list="menuList" :shop-detail-data="shopDetailData" :shop-id="shopId" :geohash="geohash"></shop-cart>
+    </section>
+    <section>
+      <transition name="fade">
+        <div class="specs-cover" @click="showChooseList" v-if="showSpecs"></div>
+      </transition>
+      <transition name="fadeBounce">
+        <div class="specs-list" v-if="showSpecs">
+          <header class="specs-list-header">
+            <h4 class="ellipsis">{{choosedFoods.name}}</h4>
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" version="1.1" class="specs-cancel"
+                 @click="showChooseList">
+              <line x1="0" y1="0" x2="16" y2="16" stroke="#666" stroke-width="1.2"/>
+              <line x1="0" y1="16" x2="16" y2="0" stroke="#666" stroke-width="1.2"/>
+            </svg>
+          </header>
+          <section class="specs-details">
+            <h5 class="specs-details-title">{{choosedFoods.specifications[0].name}}</h5>
+            <ul>
+              <li v-for="(item, itemIndex) in choosedFoods.specifications[0].values"
+                  :class="{'specs-activity': itemIndex == specsIndex}" @click="chooseSpecs(itemIndex)">
+                {{item}}
+              </li>
+            </ul>
+          </section>
+          <footer class="specs-footer">
+            <div class="specs-price">
+              <span>¥ </span>
+              <span>{{choosedFoods.specfoods[specsIndex].price}}</span>
+            </div>
+            <div class="specs-addto-cart"
+                 @click="addSpecs(choosedFoods.category_id, choosedFoods.item_id, choosedFoods.specfoods[specsIndex].food_id, choosedFoods.specfoods[specsIndex].name, choosedFoods.specfoods[specsIndex].price, choosedFoods.specifications[0].values[specsIndex], choosedFoods.specfoods[specsIndex].packing_fee, choosedFoods.specfoods[specsIndex].sku_id, choosedFoods.specfoods[specsIndex].stock)">
+              加入购物车
+            </div>
+          </footer>
+        </div>
+      </transition>
+    </section>
+    <transition name="fade">
+      <p class="show-delete-tip" v-if="showDeleteTip">多规格商品只能去购物车删除哦</p>
+    </transition>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import buyCart from 'components/common/buyCart';
+  import shopCart from 'components/common/shopCart';
   import {mapState, mapMutations} from 'vuex';
   import {getImgPath} from 'components/common/mixin';
   import BScroll from 'better-scroll';
 
   export default {
     props: {
-      food: {
+      menuList: {
         type: Array
       },
-      shopDetail: {
+      shopDetailData: {
         type: Object
       },
-      shopId: {}
+      shopId: {},
+      geohash: {}
     },
     data() {
       return {
-        menuList: [],
-        shopDetailData: null,
         TitleDetailIndex: null, // 点击展示列表头部详情
         categoryNum: [], // 商品类型右上角已加入购物车的数量
+        choosedFoods: null, // 当前选中食品数据
         showSpecs: false, // 控制显示食品规格
         specsIndex: 0, // 当前选中的规格索引值
         showDeleteTip: false, // 多规格商品点击减按钮，弹出提示框
@@ -104,8 +147,6 @@
       };
     },
     created() {
-      this.menuList = this.food;
-      this.shopDetailData = this.shopDetail;
       this.$nextTick(() => {
         this._initScroll();
         this._calculateHeight();
@@ -235,11 +276,23 @@
           clearTimeout(this.timer);
           this.showDeleteTip = false;
         }, 3000);
+      },
+      // 添加商品后，显示购物车小球动画
+      showShopCartDot(target) {
+        this._drop(target);
+      },
+      // 触发购物车小球动画
+      _drop: function (target) {
+        // 体验优化，异步执行下落动画
+        this.$nextTick(() => {
+          this.$refs.shopcart.drop(target);
+        });
       }
     },
     watch: {},
     components: {
       buyCart,
+      shopCart,
       BScroll
     }
   };
@@ -440,147 +493,6 @@
                 span:nth-of-type(3)
                   font-size: 0.5rem;
                   color: #666;
-    .buy-cart-container
-      position: absolute;
-      background-color: #3d3d3f;
-      bottom: 0;
-      left: 0;
-      z-index: 13;
-      display: flex;
-      width: 100%;
-      height: 2rem;
-      .cart-icon-num
-        flex: 1;
-        .cart-icon-container
-          display: flex;
-          background-color: #3d3d3f;
-          position: absolute;
-          padding: .4rem;
-          border: 0.18rem solid #444;
-          border-radius: 50%;
-          left: .5rem;
-          top: -.7rem;
-          .cart-icon
-            width: 1.2rem;
-            height: 1.2rem;
-          .cart-list-length
-            position: absolute;
-            top: -.25rem;
-            right: -.25rem;
-            background-color: #ff461d;
-            line-height: .7rem;
-            text-align: center;
-            border-radius: 50%;
-            border: 0.025rem solid #ff461d;
-            min-width: .7rem;
-            height: .7rem;
-            font-size: 0.5rem;
-            color: #fff;
-            font-family: Helvetica Neue,Tahoma,Arial;
-        .move-in-cart
-          animation: mymove .5s ease-in-out;
-        .cart-icon-activity
-          background-color: #3190e8;
-        .cart-num
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          left: 3.5rem;
-          div
-            color: #fff;
-          div:nth-of-type(1)
-            font-size: .8rem;
-            font-weight: bold;
-            margin-bottom: .1rem;
-          div:nth-of-type(2)
-            font-size: .4rem;
-      .gotopay
-        position: absolute;
-        right: 0;
-        background-color: #535356;
-        width: 5rem;
-        height: 100%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .gotopay-button-style
-          font-size: 0.7rem;
-          color: #fff;
-          font-weight: bold;
-      .gotopay-acitvity
-        background-color: #4cd964;
-    .cart-food-list
-      position: fixed;
-      width: 100%;
-      padding-bottom: 2rem;
-      z-index: 12;
-      bottom: 0;
-      left: 0;
-      background-color: #fff;
-      header
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: .3rem .6rem;
-        background-color: #eceff1;
-        svg
-          width: 0.6rem;
-          height: 0.6rem;
-          vertical-align: middle;
-        h4
-          font-size: 0.7rem;
-          color: #666;
-        .clear-cart
-          font-size: 0.6rem;
-          color: #666;
-      .cart-food-details
-        background-color: #fff;
-        max-height: 20rem;
-        overflow-y: auto;
-        .cart-food-li
-          display: flex;
-          justify-content: space-between;
-          padding: .6rem .5rem;
-          .cart-list-num
-            width: 55%;
-            p:nth-of-type(1)
-              font-size: 0.7rem;
-              color: #666;
-              font-weight: bold;
-            p:nth-of-type(2)
-              font-size: 0.4rem;
-              color: #666;
-          .cart-list-price
-            font-size: 0;
-            span:nth-of-type(1)
-              font-size: 0.6rem;
-              color: #f60;
-              font-family: Helvetica Neue,Tahoma;
-            span:nth-of-type(2)
-              font-size: 0.7rem;
-              color: #f60;
-              font-family: Helvetica Neue,Tahoma;
-              font-weight: bold;
-          .cart-list-control
-            display: flex;
-            align-items: center;
-            span
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            svg
-              width: 0.9rem;
-              height: 0.9rem;
-              fill: #3190e8;
-            .specs-reduce-icon
-              fill: #999;
-            .cart-num
-              font-size: 0.65rem;
-              color: #666;
-              min-width: 1rem;
-              text-align: center;
-              font-family: Helvetica Neue,Tahoma;
     .screen-cover
       position: fixed;
       top: 0;
@@ -605,4 +517,92 @@
         .activity-show
           color: #3190e8;
           border-color: #3190e8
+    .specs-cover
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,.4);
+      z-index: 17;
+    .specs-list
+      position: fixed;
+      top: 35%;
+      left: 15%;
+      width: 70%;
+      background-color: #fff;
+      z-index: 18;
+      border: 1px;
+      border-radius: 0.2rem;
+      .specs-list-header
+        h4
+          font-size: 0.7rem;
+          color: #222;
+          font-weight: normal;
+          text-align: center;
+          padding: .5rem;
+        .specs-cancel
+          position: absolute;
+          right: .5rem;
+          top: .5rem;
+      .specs-details
+        padding: .5rem;
+        .specs-details-title
+          font-size: 0.6rem;
+          color: #666;
+        ul
+          display: flex;
+          flex-wrap: wrap;
+          padding: .4rem 0;
+          li
+            font-size: .6rem;
+            padding: .3rem .5rem;
+            border: 0.025rem solid #ddd;
+            border-radius: .2rem;
+            margin-right: .5rem;
+          .specs-activity
+            border-color: #3199e8;
+            color: #3199e8;
+      .specs-footer
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 0.5rem;
+        border: 1px;
+        border-bottom-left-radius: .2rem;
+        border-bottom-right-radius: .2rem;
+        .specs-price
+          span
+            color: #ff6000;
+          span:nth-of-type(1)
+            font-size: .5rem;
+          span:nth-of-type(2)
+            font-size: .8rem;
+            font-weight: bold;
+            font-family: Helvetica Neue,Tahoma;
+        .specs-addto-cart
+          width: 4rem;
+          height: 1.3rem;
+          background-color: #3199e8;
+          border: 1px;
+          border-radius: 0.15rem;
+          font-size: 0.6rem;
+          color: #fff;
+          text-align: center;
+          line-height: 1.3rem;
+    .show-delete-tip
+      position: fixed;
+      top: 50%;
+      left: 15%;
+      width: 70%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,.8);
+      z-index: 18;
+      font-size: 0.65rem;
+      color: #fff;
+      text-align: center;
+      padding: .5rem 0;
+      border: 1px;
+      border-radius: 0.25rem;
 </style>
